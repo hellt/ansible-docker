@@ -28,6 +28,7 @@ LABEL maintainer="dodin.roman@gmail.com" \\
 RUN apk --no-cache add \\
         sudo \\
         python$PYTHON_MAJORVER \\
+        py-pip \\
         openssl \\
         ca-certificates \\
         sshpass \\
