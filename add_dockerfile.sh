@@ -60,3 +60,4 @@ EOF
 git add Dockerfile
 git commit -m "added Ansible $ANSIBLE_VERSION-py$PYTHON_VERSION"
 git push origin $ANSIBLE_VERSION-py$PYTHON_VERSION
+git checkout master
