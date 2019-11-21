@@ -16,7 +16,6 @@ LABEL maintainer="dodin.roman@gmail.com" \
 RUN apk --no-cache add \
         sudo \
         python \
-        py-pip \
         openssl \
         ca-certificates \
         sshpass \
