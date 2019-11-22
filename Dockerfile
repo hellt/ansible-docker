@@ -31,6 +31,7 @@ RUN apk --no-cache add \
     pip install --upgrade pip cffi && \
     pip install ansible==2.8.7 && \
     pip install paramiko && \
+    pip install pexpect && \
     pip install mitogen ansible-lint && \
     pip install --upgrade pywinrm && \
     apk del build-dependencies && \
