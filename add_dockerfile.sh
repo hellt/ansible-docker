@@ -43,6 +43,7 @@ RUN apk --no-cache add \\
     pip$PYTHON_MAJORVER install --upgrade pip cffi && \\
     pip$PYTHON_MAJORVER install ansible$ANSIBLE_PIP_VERSION && \\
     pip$PYTHON_MAJORVER install paramiko && \\
+    pip$PYTHON_MAJORVER install pexpect && \\
     pip$PYTHON_MAJORVER install mitogen ansible-lint && \\
     pip$PYTHON_MAJORVER install --upgrade pywinrm && \\
     apk del build-dependencies && \\
