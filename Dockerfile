@@ -15,7 +15,7 @@ LABEL maintainer="dodin.roman@gmail.com" \
 
 RUN apk --no-cache add \
         sudo \
-        python3 \
+        python \
         py-pip \
         openssl \
         ca-certificates \
@@ -24,16 +24,16 @@ RUN apk --no-cache add \
         rsync \
         git && \
     apk --no-cache add --virtual build-dependencies \
-        python3-dev \
+        python-dev \
         libffi-dev \
         openssl-dev \
         build-base && \
-    pip3 install --upgrade pip cffi && \
-    pip3 install ansible==2.8.7 && \
-    pip3 install paramiko && \
-    pip3 install pexpect && \
-    pip3 install mitogen ansible-lint && \
-    pip3 install --upgrade pywinrm && \
+    pip install --upgrade pip cffi && \
+    pip install ansible==2.8.7 && \
+    pip install paramiko && \
+    pip install pexpect && \
+    pip install mitogen ansible-lint && \
+    pip install --upgrade pywinrm && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/*
 
