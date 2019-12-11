@@ -22,7 +22,7 @@ LABEL maintainer="dodin.roman@gmail.com" \\
     org.label-schema.vendor="Roman Dodin" \\
     org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa hellt/ansible:2.8.7 ansible-playbook -i hosts my_playbook.yml"
 
-    pip install --upgrade pip cffi && \\
+RUN pip install --upgrade pip cffi && \\
     pip install ansible$ANSIBLE_PIP_VERSION && \\
     pip install paramiko && \\
     pip install pexpect && \\
