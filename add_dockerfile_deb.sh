@@ -4,7 +4,7 @@ PYTHON_VERSION="$2"
 if [ -z "$ANSIBLE_VERSION" ]; then ANSIBLE_VERSION=""; else ANSIBLE_PIP_VERSION="==$ANSIBLE_VERSION"; fi
 if [ "$PYTHON_VERSION" == "2" ]; then PYTHON_MAJORVER=""; else PYTHON_MAJORVER=$PYTHON_VERSION; fi
 
-git checkout $ANSIBLE_VERSION-py$PYTHON_VERSION || git checkout -b $ANSIBLE_VERSION-py$PYTHON_VERSION
+git checkout $ANSIBLE_VERSION-py$PYTHON_VERSION-deb || git checkout -b $ANSIBLE_VERSION-py$PYTHON_VERSION-deb
 
 cat <<EOF >Dockerfile
 # pull base image
