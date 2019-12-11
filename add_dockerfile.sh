@@ -51,7 +51,7 @@ RUN apk --no-cache add \\
 
 # Installing Galaxy collections and network plugins
 # note, ansible-galaxy is only supported from Ansible 2.9
-RUN ansible-galaxy collection install nokia.sros  # v1.0.9
+RUN ansible-galaxy collection install nokia.sros  # v1.1.2
 
 RUN mkdir /ansible && \\
     mkdir -p /etc/ansible && \\
