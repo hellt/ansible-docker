@@ -29,7 +29,7 @@ RUN apk --no-cache add \
         openssl-dev \
         build-base && \
     pip install --upgrade pip cffi && \
-    pip install ansible==2.8.7 && \
+    pip install ansible==2.8.3 && \
     pip install paramiko && \
     pip install pexpect && \
     pip install mitogen ansible-lint && \
@@ -39,7 +39,7 @@ RUN apk --no-cache add \
 
 # Installing Galaxy collections and network plugins
 # note, ansible-galaxy is only supported from Ansible 2.9
-RUN ansible-galaxy collection install nokia.sros  # v1.0.5
+RUN ansible-galaxy collection install nokia.sros  # v1.2.0
 
 RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \
