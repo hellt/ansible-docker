@@ -14,7 +14,7 @@ LABEL maintainer="dodin.roman@gmail.com" \
     org.label-schema.docker.cmd="docker run --rm -it -v /Users/romandodin/Dropbox/projects/ansible-docker:/ansible -v ~/.ssh/id_rsa:/root/id_rsa hellt/ansible:2.8.7 ansible-playbook -i hosts my_playbook.yml"
 
 RUN apt -y update && \
-    apt -y install openssh-client && \
+    apt -y install openssh-client lftp && \
     pip install --upgrade pip cffi && \
     pip install ansible==2.9.2 && \
     pip install paramiko && \
