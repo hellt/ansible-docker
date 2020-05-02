@@ -33,7 +33,8 @@ RUN apt -y update && \\
 
 # Installing Galaxy collections and network plugins
 # note, ansible-galaxy is only supported from Ansible 2.9
-RUN ansible-galaxy collection install nokia.sros  # v1.4.0
+# https://github.com/nokia/ansible-networking-collections/tree/master/sros
+RUN ansible-galaxy collection install nokia.sros  # v1.4.4
 
 RUN mkdir /ansible && \\
     mkdir -p /etc/ansible && \\
