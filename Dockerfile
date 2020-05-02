@@ -1,5 +1,5 @@
 # pull base image
-FROM alpine:3.9
+FROM python:py2.7-slim
 
 # Labels
 LABEL maintainer="dodin.roman@gmail.com" \
@@ -11,35 +11,21 @@ LABEL maintainer="dodin.roman@gmail.com" \
     org.label-schema.url="https://github.com/hellt/ansible-docker" \
     org.label-schema.vcs-url="https://github.com/hellt/ansible-docker" \
     org.label-schema.vendor="Roman Dodin" \
-    org.label-schema.docker.cmd="docker run --rm -it -v /Users/romandodin/Dropbox/projects/ansible-docker:/ansible -v ~/.ssh/id_rsa:/root/id_rsa hellt/ansible:2.8.7 ansible-playbook -i hosts my_playbook.yml"
+    org.label-schema.docker.cmd="docker run --rm -it -v /Users/romandodin/projects/ansible-docker:/ansible -v ~/.ssh/id_rsa:/root/id_rsa hellt/ansible:2.8.7 ansible-playbook -i hosts my_playbook.yml"
 
-RUN apk --no-cache add \
-        sudo \
-        python \
-        py-pip \
-        openssl \
-        ca-certificates \
-        sshpass \
-        openssh-client \
-        rsync \
-        git && \
-    apk --no-cache add --virtual build-dependencies \
-        python-dev \
-        libffi-dev \
-        openssl-dev \
-        build-base && \
+RUN apt -y update && \
+    apt -y install openssh-client lftp && \
     pip install --upgrade pip cffi && \
-    pip install ansible==2.8.7 && \
+    pip install ansible==2.9.7 && \
     pip install paramiko && \
     pip install pexpect && \
     pip install mitogen ansible-lint && \
-    pip install --upgrade pywinrm && \
-    apk del build-dependencies && \
-    rm -rf /var/cache/apk/*
+    pip install --upgrade pywinrm
 
 # Installing Galaxy collections and network plugins
 # note, ansible-galaxy is only supported from Ansible 2.9
-RUN ansible-galaxy collection install nokia.sros  # v1.0.5
+# https://github.com/nokia/ansible-networking-collections/tree/master/sros
+RUN ansible-galaxy collection install nokia.sros  # v1.4.4
 
 RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \
