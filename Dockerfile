@@ -15,13 +15,13 @@ LABEL maintainer="dodin.roman@gmail.com" \
 
 RUN apt -y update && \
     apt -y install openssh-client lftp && \
-    pip install --upgrade pip cffi && \
-    ansible==6.6.0 && \
-    paramiko && \
-    pexpect && \
-    mitogen && \
-    ansible-lint && \
-    pywinrm && \
+    pip install --upgrade pip cffi \
+    ansible==6.6.0 \
+    paramiko \
+    pexpect \
+    mitogen \
+    ansible-lint \
+    pywinrm \
     ansible-pylibssh==1.1.0
 
 # Installing Galaxy collections and network plugins
