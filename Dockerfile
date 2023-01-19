@@ -16,17 +16,19 @@ LABEL maintainer="dodin.roman@gmail.com" \
 RUN apt -y update && \
     apt -y install openssh-client lftp && \
     pip install --upgrade pip cffi && \
-    pip install ansible==6.6.0 && \
-    pip install paramiko && \
-    pip install pexpect && \
-    pip install mitogen ansible-lint && \
-    pip install --upgrade pywinrm
+    ansible==6.6.0 && \
+    paramiko && \
+    pexpect && \
+    mitogen && \
+    ansible-lint && \
+    pywinrm && \
+    ansible-pylibssh==1.1.0
 
 # Installing Galaxy collections and network plugins
 # note, ansible-galaxy is only supported from Ansible 2.9
 # https://github.com/nokia/ansible-networking-collections/tree/master/sros
-# RUN ansible-galaxy collection install ansible.netcommon
-# RUN ansible-galaxy collection install nokia.sros:1.6.0
+RUN ansible-galaxy collection install nokia.sros
+RUN ansible-galaxy collection install arista.eos
 
 RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \
