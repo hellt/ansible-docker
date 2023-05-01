@@ -44,5 +44,5 @@ git add Dockerfile
 git commit -m "added Ansible $ANSIBLE_CORE_VERSION-py$PYTHON_VERSION"
 git push origin $ANSIBLE_CORE_VERSION-py$PYTHON_VERSION
 docker build -t ghcr.io/hellt/ansible:$ANSIBLE_CORE_VERSION .
-docker push ghcr.io/hellt/ansible:$ANSIBLE_CORE_VERSION .
+docker push ghcr.io/hellt/ansible:$ANSIBLE_CORE_VERSION
 # git checkout master
