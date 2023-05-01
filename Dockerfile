@@ -21,7 +21,7 @@ RUN apt -y update && \
     pip install mitogen ansible-lint
 
 # Installing Galaxy collections and network plugins
-RUN ansible-galaxy collection install git+https://github.com/nokia/srlinux-ansible-collection.git
+RUN ansible-galaxy collection install nokia.srlinux:0.2.0
 
 RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \
